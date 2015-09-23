@@ -12,7 +12,7 @@ make
 
 ##Running
 
-SWALO can be run by copying the script `runSwalo` for Bowtie 2 (recommended) or `runSwalo_bowtie` for Bowtie to the desired directory, modifying the filenames and parameters, and running 
+SWALO can be run by copying the script `runSwalo` for Bowtie 2 (recommended) to the desired directory, modifying the filenames and parameters, and running 
 ```
 .\runSwalo
 ```
