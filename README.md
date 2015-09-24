@@ -61,3 +61,20 @@ As before `-a` can be used instead of `-k 5` and `--jump` need to be deleted for
 ###### Important
 
 If Bowtie is used either use a single thread for mapping or sort the results before running `bowtieconvert` as reads can be in different order if multiple threads are used.
+
+
+#### Combining multiple insert libraries
+There are two approaches for multiple insert size libraries. The first is to build the scaffold graph separately and then combine the graphs before actually merging contigs. The other approach is to do the scaffolding hierarchically. We recommend the first approach unless some insert libraries have large standard deviations in which case we recommend scaffolding using all other libraries using the first approach and then scaffold using libraries with high standard deviation together using the conservative mode.
+
+For this first run SWALO on each library separately in different directories as discussed above. This will generate three files with names staring with the same `<prefix>` and a text file `prefixes.txt` containing the `<prefix>`. Now create a new directory, copy into the new directory the three files starting with `<prefix>` from each directory and create a new text file `prefixes.txt` in the new directory containing one prefix in each line. Then in the new directory run
+```
+swaloFile <contigFile_Fasta> [options]
+```
+This will generate the scaffolds. Add `--conservative or -c` to run in conservative mode. 
+
+An example script to do this is provided with SWALO which will generate results in `combined_bowtie2` with `bowtie2` and `long_bowtie2` being the source directories. 
+
+#### SWALO Help
+
+Please email your questions, comments, suggestions, and bug reports to ask.swalo@gmail.com
+
