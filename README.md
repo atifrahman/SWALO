@@ -41,7 +41,7 @@ bowtie2convert <mapFile_SAM> <contigFile_Fasta> <maxInsertSize>
 align <contigFile_Fasta>
 swalo <contigFile_Fasta> <minContigLength> --jump [options]
 ```
-For paired-end reads (regular or fosmid libraries) delete the `--jump`. The `<minContigLength>` is the minimum length of contigs that will be used for learning insert size distribution. Other options are
+*scaffolds.fa* will contain the results in fasta format. For paired-end reads (regular or fosmid libraries) delete the `--jump`. The `<minContigLength>` is the minimum length of contigs that will be used for learning insert size distribution. Other options are
 
 `--dist <mean> <standardDev> or -d <mean> <standardDev>` : Use Normal distribution with `<mean>` and `<standardDev>` instead of learning insert size distribution. Recommended if number of inserts to learn the distribution is less than 100,000.
 
@@ -57,3 +57,7 @@ bowtie -k 5 -v <numberMismatches> contigs_bowtie <readFile2_Fastq> -S <mapFile2_
 bowtieconvert <mapFile1_SAM> <mapFile2_SAM> <contigFile_Fasta> <maxInsertSize> <insertSizeLimit(>=maxInsertSize)> --jump
 ```
 As before `-a` can be used instead of `-k 5` and `--jump` need to be deleted for regular or fosmid libraries. The last two steps `align` and `swalo` remain the same.
+
+###### Important
+
+If Bowtie is used either only one thread can be used for mapping or results need to be sorted before running `bowtieconvert` as reads can be in different order if multiple threads are used.
