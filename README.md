@@ -49,7 +49,7 @@ swalo <contigFile_Fasta> <minContigLength> --jump [options]
 
 ###### Using SWALO with Bowtie
 
-Reads can also be mapped with Bowtie although number of reads mapped can be quite low for poor quality libraries. For this run
+Reads can also be mapped with Bowtie although number of reads mapped can be quite low for poor quality libraries. This can be done by running the script `.\runSwalo_bowtie` as discussed above or run
 ```
 bowtie-build <contigFile_Fasta> contigs_bowtie
 bowtie -k 5 -v <numberMismatches> contigs_bowtie <readFile1_Fastq> -S <mapFile1_SAM>
