@@ -60,4 +60,4 @@ As before `-a` can be used instead of `-k 5` and `--jump` need to be deleted for
 
 ###### Important
 
-If Bowtie is used either only one thread can be used for mapping or results need to be sorted before running `bowtieconvert` as reads can be in different order if multiple threads are used.
+If Bowtie is used either use a single thread for mapping or sort the results before running `bowtieconvert` as reads can be in different order if multiple threads are used.
