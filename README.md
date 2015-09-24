@@ -26,7 +26,7 @@ The directories containing Bowtie 2 and SWALO need to be added to the $PATH vari
 
 ###### Mapping reads using Bowtie 2
 
-To map mate-pair reads (reads from jumping library) using Bowtie 2 run
+To create index of the contig file and map mate-pair reads (reads from jumping library) using Bowtie 2 run
 ```
 bowtie2-build <contigFile_Fasta> contigs
 bowtie2 -k 5 -x contigs -X <maxInsertSize> --rf -p <numberThreads> -1 <readFile1_Fastq> -2 <readFile2_Fastq> -S <mapFile_SAM>
@@ -46,3 +46,14 @@ For paired-end reads (regular or fosmid libraries) delete the `--jump`. The `<mi
 `--dist <mean> <standardDev> or -d <mean> <standardDev>` : Use Normal distribution with `<mean>` and `<standardDev>` instead of learning insert size distribution. Recommended if number of inserts to learn the distribution is less than 100,000.
 
 `--conservative or -c` : Use a conservative mode (please see paper). Recommended if standard deviation of insert library is high (>1000). 
+
+###### Using SWALO with Bowtie
+
+Reads can also be mapped with Bowtie although number of reads mapped can be quite low for poor quality libraries. For this run
+```
+bowtie-build <contigFile_Fasta> contigs_bowtie
+bowtie -k 5 -v <numberMismatches> contigs_bowtie <readFile1_Fastq> -S <mapFile1_SAM>
+bowtie -k 5 -v <numberMismatches> contigs_bowtie <readFile2_Fastq> -S <mapFile2_SAM>
+bowtieconvert <mapFile1_SAM> <mapFile2_SAM> <contigFile_Fasta> <maxInsertSize> <insertSizeLimit(>=maxInsertSize)> --jump
+```
+As before `-a` can be used instead of `-k 5` and `--jump` need to be deleted for regular or fosmid libraries. The last two steps `align` and `swalo` remain the same.
