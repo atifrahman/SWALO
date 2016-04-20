@@ -3,6 +3,7 @@ Scaffolding with assembly likelihood optimization
 
 ## Files
 scaffolds_human.tar.gz contains scaffolding results of Human chromosome 14 data
+
 scaffolds_rest.tar.gz contains scaffolding results of other datasets used in the paper
 
 ## Scripts
