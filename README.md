@@ -1,6 +1,9 @@
 # SWALO
 Scaffolding with assembly likelihood optimization
 
+## Files
+scaffolds_human.tar.gz contains scaffolding results of Human chromosome 14 data
+scaffolds_rest.tar.gz contains scaffolding results of other datasets used in the paper
 
 ## Scripts
 scaffolding_scripts.tar.gz contains scripts needed to generate the results used in the paper presenting SWALO. To run the scripts download the tarball and run
