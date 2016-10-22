@@ -1,0 +1,33 @@
+#!/bin/bash
+
+swaloDir=/scratch/atif/scaffolding/swalo
+contigFile=contigs.fa
+readFile1=../shortjump_1.fastq
+readFile2=../shortjump_2.fastq
+mapFile1=map_bowtie_1.sam
+mapFile2=map_bowtie_2.sam
+noMismatches=0	#number of mismatches
+minContigLength=4400	# minimum length of contigs used for learning parameters
+isJump=1	# set 1 for mate-pair library, 0 for paired-end/fosmid library
+maxInsertSize=20000	# maximum insert size can be set any large enough value	
+
+bowtie-build $contigFile contigs_bowtie
+bowtie -k 5 -v $noMismatches contigs_bowtie $readFile1 -S $mapFile1
+bowtie -k 5 -v $noMismatches contigs_bowtie $readFile2 -S $mapFile2
+
+
+if test $isJump -eq 1
+then
+	$swaloDir/bowtieconvert $mapFile1 $mapFile2 $contigFile $maxInsertSize $maxInsertSize --jump
+else
+	$swaloDir/bowtieconvert $mapFile1 $mapFile2 $contigFile $maxInsertSize $maxInsertSize
+fi
+
+$swaloDir/align $contigFile
+
+if test $isJump -eq 1
+then
+	$swaloDir/swalo $contigFile $minContigLength --jump
+else
+	$swaloDir/swalo $contigFile $minContigLength
+fi

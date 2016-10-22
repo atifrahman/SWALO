@@ -1,0 +1,16 @@
+swaloDir=<swalo directory>
+
+dir1=bowtie2
+dir2=long_bowtie2
+destdir=combined_bowtie2
+prefix=$(cat $dir1/prefixes.txt)
+cp $dir1/prefixes.txt $destdir
+cp $dir1/$prefix* $destdir
+
+prefix=$(cat $dir2/prefixes.txt)
+echo $prefix >> $destdir/prefixes.txt
+cp $dir2/$prefix* $destdir
+cp contigs.fa $destdir
+cd $destdir
+$swaloDir/swaloFile contigs.fa > test.txt
+cd ..
