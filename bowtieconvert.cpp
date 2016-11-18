@@ -14,9 +14,9 @@ using namespace std;
 #include <limits.h>
 
 
-#define MAX_REC_LEN 1024
-#define MAX_READLENGTH 200
-#define MAX_NAMELENGTH 200
+#define MAX_REC_LEN 10240
+#define MAX_READLENGTH 1000
+#define MAX_NAMELENGTH 1000
 
 struct SAM
 {
@@ -1400,13 +1400,13 @@ int main(int argc, char *argv[])
     int end=0;
     
     
-	char preqname1[100];
-	char preqname2[100];
+	char preqname1[1000];
+	char preqname2[1000];
 	
 	strcpy(preqname1,"*");
 	strcpy(preqname2,"*");
     
-    char qname[200];
+    char qname[1000];
     int flag_segment;
     
     // read map file
