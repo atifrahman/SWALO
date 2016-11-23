@@ -76,5 +76,5 @@ An example script to do this is provided with SWALO which will generate results 
 
 #### SWALO Help
 
-Please email your questions, comments, suggestions, and bug reports to ask.swalo@gmail.com
+Please email your questions, comments, suggestions, and bug reports to atif DOT bd AT gmail DOT com
 
