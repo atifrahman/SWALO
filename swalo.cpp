@@ -16,7 +16,7 @@ using namespace std;
 #include <math.h>
 #include "cgal.h"
 
-#define MAX_REC_LEN 1024
+#define MAX_REC_LEN 4096
 
 int noContigs=0;
 int noReads=0;

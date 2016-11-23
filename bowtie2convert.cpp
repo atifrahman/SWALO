@@ -13,7 +13,7 @@ using namespace std;
 #include "cgal.h"
 #include <math.h>
 
-#define MAX_REC_LEN 10240
+#define MAX_REC_LEN 4096
 #define MAX_READLENGTH 1000
 #define MAX_NAMELENGTH 1000
 
