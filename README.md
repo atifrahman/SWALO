@@ -1,7 +1,7 @@
 # SWALO
 Scaffolding with assembly likelihood optimization
 
-##Installation
+## Installation
 
 To install SWALO, downlaod the latest version from [http://atifrahman.github.io/SWALO/](http://atifrahman.github.io/SWALO/) and run the following commands.
 ```
@@ -10,7 +10,7 @@ cd swalo
 make
 ```
 
-##Running
+## Running
 
 #### Using shell script
 
