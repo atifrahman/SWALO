@@ -4,7 +4,7 @@
 
 #define NUM_THREADS 32
 #define SEED 94703
-#define VERSION "0.9.5-beta"
+#define VERSION "0.9.8-beta"
 
 void itoa(int value, char *s, int base)
 {
